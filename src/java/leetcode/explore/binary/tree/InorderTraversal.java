@@ -41,15 +41,13 @@ public class InorderTraversal {
             } else{
                 p = stack.pop();
                 list.add(p.val);
-                if(p!=null && p.right != null){
+                if(p != null && p.right != null){
                     stack.push(p.right);
                     p=p.right;
                 }else{
                     p=null;
                 }
-
             }
-
         }
 
         return list;
