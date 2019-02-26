@@ -55,6 +55,27 @@ public class InorderTraversal {
 
 
 
+    /**
+     *
+     * @param root 树根节点
+     * 利用栈模拟递归过程实现循环中序遍历二叉树
+     * 思想和上面的preOrderStack_2相同，只是访问的时间是在左子树都处理完直到null的时候出栈并访问。
+     */
+    public static void inOrderStack(TreeNode root){
+        if(root==null)return;
+        Stack<TreeNode> s=new Stack<TreeNode>();
+        while(root!=null||!s.isEmpty()){
+            while(root!=null){
+                s.push(root);//先访问再入栈
+                root=root.left;
+            }
+            root=s.pop();
+            System.out.println(root.val);
+            root=root.right;//如果是null，出栈并处理右子树
+        }
+    }
+
+
     class TreeNode {
         int val;
         TreeNode left;
