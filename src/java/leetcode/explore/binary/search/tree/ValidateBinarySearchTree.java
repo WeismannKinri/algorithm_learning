@@ -1,4 +1,4 @@
-package leetcode.explore.search;
+package leetcode.explore.binary.search.tree;
 
 public class ValidateBinarySearchTree {
     /**
@@ -33,7 +33,6 @@ public class ValidateBinarySearchTree {
                 return false;
             }
         }
-
         return isValidBST(root.left) && isValidBST(root.right);
     }
 
@@ -55,8 +54,6 @@ public class ValidateBinarySearchTree {
         if (root.val >= maxVal || root.val <= minVal) return false;
         return isValidBST(root.left, minVal, root.val) && isValidBST(root.right, root.val, maxVal);
     }
-
-
 }
 
 

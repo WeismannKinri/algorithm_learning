@@ -2,22 +2,22 @@ package leetcode.explore.binary.tree;
 
 import java.util.LinkedList;
 
-public class MaxDepth {
-    /**
-     * using recurtion
-     * @param root
-     * @return
-     */
-    public int maxDepth(TreeNode root) {
-        if (root == null) return 0;
-        return helper(root, 1);
-    }
-    public int helper(TreeNode root, int i) {
-        int l = 0, r = 0;
-        if (root.left != null) {
-            l = helper(root.left, i + 1);
-        }
-        if (root.right != null) {
+            public class MaxDepth {
+                /**
+                 * using recurtion
+                 * @param root
+                 * @return
+                 */
+                public int maxDepth(TreeNode root) {
+                    if (root == null) return 0;
+                    return helper(root, 1);
+                }
+                public int helper(TreeNode root, int i) {
+                    int l = 0, r = 0;
+                    if (root.left != null) {
+                        l = helper(root.left, i + 1);
+                    }
+                    if (root.right != null) {
             r = helper(root.right, i + 1);
         }
         if (root.left == null && root.right == null) {
@@ -34,7 +34,7 @@ public class MaxDepth {
     public int maxDepth2(TreeNode root) {
         int depth = 0;
         if (root != null) {
-            depth = 1 + Math.max(maxDepth(root.left), maxDepth(root.right));
+            depth = 1 + Math.max(maxDepth2(root.left), maxDepth2(root.right));
         }
         return depth;
     }
